@@ -176,7 +176,7 @@ class FeedbackCollector:
 
         if open_feedback_label:
             if st.session_state.get(f"{key}_state_clicked", "") != "":
-                st.text_input(open_feedback_label, key=f"{feedback_type}_open_feedback_{key}")
+                st.text_area(open_feedback_label, key=f"{feedback_type}_open_feedback_{key}")
                 st.button(
                     config.FEEDBACK_SAVE_BUTTON,
                     on_click=feedback_handler,
@@ -232,7 +232,7 @@ class FeedbackCollector:
             st.session_state[f"previous_{key}_state"] = st.session_state[f"{key}_title"]
             st.session_state[f"{key}_title"] = ""
 
-        title = st.text_input(
+        title = st.text_area(
             label=label or "Provide some feedback",
             key=f"{key}_title",
         )
